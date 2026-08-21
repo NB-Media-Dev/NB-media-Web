@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap');
+
+:root {
+  --color-gold: #F59E0B;
+  --color-gold-dark: #D97706;
+  --color-gold-light: #FBBF24;
+  --color-bg-black: #000000;
+  --color-bg-dark: #08090D;
+  --color-bg-card: #12141C;
+  --color-bg-grey: #B8B5B2;
+  --font-heading: 'Plus Jakarta Sans', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: var(--font-body);
+  background-color: var(--color-bg-black);
+  color: #ffffff;
+  overflow-x: hidden !important;
+  width: 100%;
+  max-width: 100%;
+}
+
+body {
+  background-color: #000000;
+  color: #ffffff;
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden !important;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#root {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.text-gold, .gold-text {
+  color: #F59E0B !important;
+}
+
+.border-gold, .gold-border {
+  border: 2px solid #F59E0B !important;
+}
+
+.gold-glow {
+  box-shadow: 0 0 35px rgba(245, 158, 11, 0.25) !important;
+}
+
+.orange-card, .bg-orange-highlight {
+  background-color: #F59E0B !important;
+  color: #000000 !important;
+}
+
+.grey-container {
+  background-color: #B8B5B2 !important;
+  border-radius: 40px !important;
+  color: #000000 !important;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #000000;
+}
+::-webkit-scrollbar-thumb {
+  background: #22242e;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #F59E0B;
+}
+
+.card-hover {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
+}
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5), 0 0 20px rgba(245, 158, 11, 0.2);
+}
+
+input, select, textarea {
+  font-family: 'Inter', sans-serif;
+  outline: none;
+}
+input:focus, select:focus, textarea:focus {
+  border-color: #F59E0B !important;
+  box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.3) !important;
+}
