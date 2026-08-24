@@ -1,12 +1,13 @@
 import React from 'react';
 import ServicesSection from '../components/ServicesSection';
 import ContactSection from '../components/ContactSection';
+import PageLayout from '../components/common/PageLayout';
 
-export default function ServicesPage({ searchQuery = '' }) {
+export default function ServicesPage() {
   return (
-    <div style={{ paddingTop: '60px' }}>
-      <ServicesSection searchQuery={searchQuery} />
+    <PageLayout>
+      <ServicesSection />
       <ContactSection />
-    </div>
+    </PageLayout>
   );
 }

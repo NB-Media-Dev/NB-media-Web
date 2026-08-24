@@ -8,15 +8,15 @@ import ProductsSection from '../components/ProductsSection';
 import FAQSection from '../components/FAQSection';
 import ContactSection from '../components/ContactSection';
 
-export default function HomePage({ searchQuery, setSearchQuery }) {
+export default function HomePage() {
   return (
     <>
       <Hero />
-      <MissionVision searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
-      <EndToEndSolutions searchQuery={searchQuery} />
+      <MissionVision />
+      <EndToEndSolutions />
       <AboutSection />
       <TechStackSection />
-      <ProductsSection searchQuery={searchQuery} />
+      <ProductsSection />
       <FAQSection />
       <ContactSection />
     </>

@@ -91,10 +91,12 @@ button, input, select, textarea {
   color: var(--color-gold) !important;
 }
 
+/* Desktop content scales with the viewport instead of becoming too small on large displays. */
 .max-container {
-  max-width: 1280px;
+  width: min(94vw, 1600px);
+  max-width: 1600px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0;
 }
 
 .max-container1 {
@@ -113,14 +115,14 @@ button, input, select, textarea {
   box-sizing: border-box;
 }
 
-.navbar-container {
+ .navbar-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  max-width: 1380px;
-  width: 100%;
+  width: min(94vw, 1600px);
+  max-width: 1600px;
   margin: 0 auto;
-  padding: 4px 32px;
+  padding: 4px 0;
   box-sizing: border-box;
 }
 
@@ -231,12 +233,11 @@ button, input, select, textarea {
 .enquire-now-btn {
   padding: 8px 22px;
   border-radius: 9999px;
-  background-color: #ffffff;
+  background-color: var(--color-gold);
   color: #000000;
   font-size: 15px;
   font-weight: 700;
   font-family: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
-  border: 1px solid #ffffff;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   display: inline-flex;
   align-items: center;
@@ -303,13 +304,13 @@ button, input, select, textarea {
   inset: 0;
 }
 
-.hero-content {
+ .hero-content {
   position: relative;
   z-index: 100;
-  max-width: 1280px;
+  width: min(94vw, 1600px);
+  max-width: 1600px;
   margin: 0 auto;
-  padding: 150px 24px 0 24px;
-  width: 100%;
+  padding: 150px 0 0;
   animation: fadeInUp 0.8s ease-out;
 }
 
@@ -345,13 +346,13 @@ button, input, select, textarea {
   max-width: 420px;
 }
 
-.hero-stats-wrapper {
+ .hero-stats-wrapper {
   position: relative;
   z-index: 10;
-  max-width: 1180px;
-  margin: 48px auto 0 auto;
-  padding: 0 20px;
-  width: 100%;
+  width: min(86vw, 1400px);
+  max-width: 1400px;
+  margin: 48px auto 0;
+  padding: 0;
 }
 
 .stats-card-gold {
@@ -418,8 +419,8 @@ button, input, select, textarea {
   width: 100%;
 }
 
-.search-box {
-  left: -20%;
+ .search-box {
+  left: 0;
   position: relative;
   width: 100%;
   max-width: 420px;
@@ -813,13 +814,14 @@ button, input, select, textarea {
   font-family: var(--font-heading);
 }
 
-.products-cards-grid {
+ .products-cards-grid {
   position: relative;
   z-index: 10;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 32px;
-  max-width: 1080px;
+  gap: clamp(24px, 2vw, 36px);
+  width: min(86vw, 1400px);
+  max-width: 1400px;
   margin: 0 auto;
 }
 
@@ -961,44 +963,149 @@ button, input, select, textarea {
 }
 
 .service-action-wrapper {
-  margin-top: 12px;
+  margin-top: 16px;
 }
 
 .get-solution-btn {
-  display: inline-block;
-  padding: 14px 34px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 16px 36px;
   border-radius: 30px;
   background: linear-gradient(90deg, #FF6B00 0%, #FF8A00 100%);
   color: #ffffff;
   font-weight: 700;
-  font-size: 16px;
+  font-size: 16.5px;
   text-decoration: none;
-  box-shadow: 0 6px 20px rgba(255, 107, 0, 0.45);
-  transition: all 0.3s ease;
+  box-shadow: 0 6px 22px rgba(255, 107, 0, 0.45);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   border: none;
   cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.get-solution-btn .cta-arrow-icon {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .get-solution-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(255, 107, 0, 0.65);
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 10px 30px rgba(255, 107, 0, 0.65), 0 0 20px rgba(255, 138, 0, 0.4);
   background: linear-gradient(90deg, #FF7A00 0%, #FFA500 100%);
+}
+
+.get-solution-btn:hover .cta-arrow-icon {
+  transform: translateX(5px);
+}
+
+.get-solution-btn:active {
+  transform: translateY(-1px) scale(0.98);
+  box-shadow: 0 4px 15px rgba(255, 107, 0, 0.5);
 }
 
 .service-carousel-column {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 24px;
+  gap: 20px;
+  width: 100%;
+}
+
+.carousel-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  gap: 16px;
+}
+
+.carousel-nav-btn {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: rgba(28, 28, 32, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1.5px solid rgba(255, 122, 0, 0.45);
+  color: #FFA500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.5), inset 0 0 12px rgba(255, 122, 0, 0.06);
+  flex-shrink: 0;
+  z-index: 10;
+  outline: none;
+}
+
+.carousel-nav-btn:hover {
+  background: linear-gradient(135deg, #FF6B00 0%, #FF8A00 100%);
+  border-color: #FFA500;
+  color: #ffffff;
+  transform: scale(1.12);
+  box-shadow: 0 6px 22px rgba(255, 107, 0, 0.55), 0 0 16px rgba(255, 138, 0, 0.4);
+}
+
+.carousel-nav-btn:active {
+  transform: scale(0.95);
+}
+
+.carousel-nav-btn svg {
+  transition: transform 0.25s ease;
+}
+
+.carousel-nav-btn.prev-btn:hover svg {
+  transform: translateX(-3px);
+}
+
+.carousel-nav-btn.next-btn:hover svg {
+  transform: translateX(3px);
 }
 
 .carousel-cards-track {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 70px;
+  gap: 28px;
   width: 100%;
   padding: 10px 0;
+}
+
+.carousel-pagination-dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.carousel-dot-btn {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.25);
+  border: 1px solid rgba(255, 122, 0, 0.3);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 0;
+  outline: none;
+}
+
+.carousel-dot-btn:hover {
+  background: rgba(255, 122, 0, 0.7);
+  transform: scale(1.25);
+}
+
+.carousel-dot-btn.active {
+  width: 30px;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #FF6B00 0%, #FF8A00 100%);
+  border-color: #FFA500;
+  box-shadow: 0 0 12px rgba(255, 107, 0, 0.6);
 }
 
 .carousel-card-item {
@@ -1160,6 +1267,7 @@ button, input, select, textarea {
 .faq-large-title1 {
   display: flex;
   z-index: 10;
+  margin-bottom: 70px;
   font-size: 50px;
   font-weight: 900;
   letter-spacing: 4px;
@@ -1376,7 +1484,7 @@ button, input, select, textarea {
   max-width: 760px;
   margin: 0 auto;
   font-weight: 500;
-  text-shadow: 0 2px 4px #FFA500(0, 0, 0, 0.9);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
 }
 
 .contact-form-wrapper {
@@ -2047,11 +2155,14 @@ select.form-input-control option {
     min-height: 240px;
     margin: 24px 0;
   }
+   .contact-banner-arches{
+    min-width: 0;
+  }
   .contact-main-title {
     font-size: 32px;
   }
   .contact-banner-desc {
-    font-size: 14px;
+    font-size: 14px;      
   }
   .contact-form-wrapper {
     margin-top: 32px;
@@ -2338,8 +2449,8 @@ select.form-input-control option {
   border-radius: 40px;
   padding: 64px 36px 40px 36px;
   margin-top: 35px;
-  margin-left: -20px;
-  margin-right: -20px;
+  margin-left: 0;
+  margin-right: 0;
 }
 .solutions-header-badge {
   position: absolute;
@@ -2398,21 +2509,21 @@ select.form-input-control option {
 .solution-card-orange {
   background-color: #FFA600;
   color: #000000;
-  border-radius:-0px 20px;
+  border-radius: 0 20px;
 }
 
 .solution-card-dark {
   background-color: #1e1e20;
   color: #ffffff;
-  border-radius:-0px 20px;
+  border-radius: 0 20px;
 }
 
 .card-top-left-rounded {
-  border-radius:-0px 20px;
+  border-radius: 0 20px;
 }
 
 .card-bottom-right-rounded {
-  border-radius:-0px 20px;
+  border-radius: 0 20px;
 }
 
 .solution-card-title {
@@ -2447,48 +2558,122 @@ select.form-input-control option {
   font-weight: 400;
 }
 
+@media (max-width: 1440px) {
+  .hero-main-title { font-size: 56px; }
+  .section-headline, .section-headline1 { font-size: 42px; }
+}
+
+/* --- 2. Medium Laptops & Tablets (1025px to 1200px) --- */
+@media (max-width: 1200px) {
+  .hero-main-title { font-size: 48px; }
+  .hero-tagline { font-size: 32px; }
+  .mission-row, .vision-row { gap: 40px; }
+  .about-banner-content { grid-column: 5 / span 8; padding: 40px 24px; }
+  .about-gold-card { padding: 32px; }
+}
+
+/* --- 3. Small Laptops & Landscape Tablets (769px to 1024px) --- */
 @media (max-width: 1024px) {
-  .solutions-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .solutions-header-badge h2 {
-    font-size: 30px;
-  }
-  .solutions-subtitle {
-    font-size: 20px;
-  }
+  .navbar-container { padding: 16px 24px; }
+  .navbar-right { gap: 20px; }
+  .hero-content { padding-top: 60px; text-align: center; }
+  .hero-description { margin: 0 auto; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+  
+  .mission-row, .vision-row { grid-template-columns: 1fr; gap: 32px; margin-bottom: 60px; }
+  .mission-image-col, .vision-image-col, .mission-text-col, .vision-text-col { grid-column: span 12; text-align: center; }
+  .vertical-image-card { max-width: 320px; height: 380px; }
+  .section-headline, .section-headline1 { font-size: 36px; text-align: center; }
+  .section-paragraph, .section-paragraph1 { font-size: 18px; max-width: 100%; text-align: center; }
+  
+  .about-banner-container { grid-template-columns: 1fr; min-height: auto; }
+  .about-banner-overlay { background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.85) 100%); }
+  .about-banner-content { grid-column: span 12; justify-content: center; padding: 60px 24px; }
+  .about-gold-card { max-width: 640px; }
+  
+  .tech-categories-grid { grid-template-columns: repeat(3, 1fr); }
+  .tech-items-grid { grid-template-columns: repeat(3, 1fr); }
+  .products-cards-grid { grid-template-columns: repeat(2, 1fr); }
+  .services-showcase-grid { grid-template-columns: 1fr; gap: 40px; }
+  .service-info-column { align-items: center; text-align: center; }
+  .why-choose-cards-grid { grid-template-columns: repeat(2, 1fr); }
+  
+  .contact-gold-border-card { grid-template-columns: 1fr; padding: 40px 32px; }
+  .contact-left-info { text-align: center; }
+  .footer-grid { grid-template-columns: repeat(2, 1fr); }
+  .solutions-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
+/* --- 4. Portrait Tablets & Large Phones (481px to 768px) --- */
 @media (max-width: 768px) {
-  .solutions-grid {
-    grid-template-columns: 1fr;
-  }
-  .solutions-grey-wrapper {
-    padding: 50px 20px 28px 20px;
-    border-radius: 24px;
-    margin-top: 25px;
-  }
-  .solutions-header-badge {
-    top: -24px;
-    padding: 10px 24px;
-  }
-  .solutions-header-badge h2 {
-    font-size: 22px;
-  }
-  .solutions-subtitle {
-    font-size: 16px;
-    margin-top: 10px;
-    margin-bottom: 24px;
-  }
-  .solution-card {
-    padding: 22px 20px;
-    min-height: auto;
-  }
-  .solution-card-title {
-    font-size: 22px;
-  }
-  .solution-card-desc {
-    font-size: 13.5px;
-  }
+  .navbar-links, .navbar-action { display: none; }
+  .mobile-toggle-btn { display: block; }
+  .navbar-container { padding: 12px 20px; }
+  
+  .hero-section { min-height: auto; padding-top: 120px; }
+  .hero-content { padding: 0 16px; }
+  .hero-main-title { font-size: 38px; }
+  .hero-tagline { font-size: 26px; }
+  .hero-stats-wrapper { padding: 0 16px; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .stat-number { font-size: 30px; }
+  
+  .tech-header-title { font-size: 36px; }
+  .tech-categories-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .tech-cat-btn { min-height: 85px; }
+  .tech-items-grid { grid-template-columns: repeat(2, 1fr); }
+  .products-cards-grid { grid-template-columns: 1fr; max-width: 480px; }
+  
+  .active-card { width: 280px; height: 300px; }
+  .inactive-card { display: none; }
+  .why-choose-cards-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
+  
+  .faq-large-title, .faq-large-title1 { font-size: 36px; text-align: center; }
+  .faq-grey-container { padding: 32px 20px; }
+  .contact-main-title { font-size: 36px; }
+  .form-grid-2 { grid-template-columns: 1fr; gap: 16px; }
+  
+  .footer-white-card { padding: 40px 24px; }
+  .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+  .footer-orange-bar { padding: 12px 24px; justify-content: center; }
+  
+  .solutions-section { border-radius: 0 0 100px 100px; }
+  .solutions-grid { grid-template-columns: 1fr; }
+  .solutions-header-badge h2 { font-size: 24px; }
 }
 
+/* --- 5. Small Mobile Frameworks (Up to 480px) --- */
+@media (max-width: 480px) {
+  .brand-title { font-size: 20px; }
+  .brand-subtitle { font-size: 15px; }
+  .navbar-logo-wrapper { height: 44px; }
+  .hero-main-title { font-size: 32px; }
+  .hero-tagline { font-size: 22px; }
+  .stats-grid { grid-template-columns: 1fr; }
+  
+  .section-headline, .section-headline1 { font-size: 28px; }
+  .section-paragraph, .section-paragraph1 { font-size: 15px; }
+  .about-gold-card { padding: 24px 16px; }
+  .about-card-title { font-size: 28px; }
+  
+  .tech-header-title { font-size: 28px; }
+  .tech-matrix-box { padding: 24px 16px; }
+  .tech-items-grid { grid-template-columns: repeat(2, 1fr); }
+  .service-title-display { font-size: 32px; }
+  .active-card { width: 220px; height: 260px; }
+  
+  .contact-gold-border-card { padding: 32px 16px; }
+  .contact-amazing-title { font-size: 26px; }
+}
+
+/* --- 6. Ultrawide Monitors Optimization (4K, Ultra Large screens 1920px+) --- */
+@media (min-width: 1920px) {
+  .max-container, .navbar-container, .hero-content, .hero-stats-wrapper, .products-cards-grid, .footer-white-card {
+    max-width: 1660px; 
+  }
+  .hero-main-title { font-size: 76px; }
+  .hero-tagline { font-size: 42px; }
+  .hero-description { font-size: 20px; max-width: 620px; }
+  .section-headline, .section-headline1 { font-size: 56px; }
+  .section-paragraph, .section-paragraph1 { font-size: 22px; max-width: 720px; }
+}

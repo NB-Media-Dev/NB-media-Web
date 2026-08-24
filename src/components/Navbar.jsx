@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
-import { motion } from 'framer-motion';
-import logoImg from '../assets/web_size_2.png';
+import BrandLogo from './common/BrandLogo';
+import CTAButton from './common/CTAButton';
+import { NAV_ITEMS } from '../data/companyData';
+import { handleHashNavigation } from '../utils/navigation';
 import '../App.css';
+import { Check, ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react';
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -12,70 +15,44 @@ export default function Navbar() {
 
   const handleNavClick = (e, path) => {
     setMobileMenuOpen(false);
-
-    if (path.startsWith('/#')) {
-      e.preventDefault();
-      const hash = path.replace('/', '');
-      if (location.pathname !== '/') {
-        navigate('/' + hash);
-      } else {
-        const elem = document.querySelector(hash);
-        if (elem) {
-          elem.scrollIntoView({ behavior: 'smooth' });
-        }
-      }
-    }
+    handleHashNavigation(e, path, location.pathname, navigate);
   };
 
   return (
     <header className="navbar-header">
       <div className="navbar-container">
         <Link to="/" className="navbar-brand">
-          <motion.div
-            layoutId="navbar-logo-shared"
-            transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-            className="navbar-logo-wrapper"
-            style={{ display: 'inline-block' }}
-          >
-            <img src={logoImg} alt="NB Media TECH" className="navbar-logo-img" />
-          </motion.div>
+          <BrandLogo className="navbar-logo-img" />
         </Link>
 
         <div className="navbar-right">
           <nav className="navbar-links">
-            <Link to="/" className={`nav-link`}>
-              Home
-            </Link>
-            <a
-              href="/#about"
-              onClick={(e) => handleNavClick(e, '/#about')}
-              className="nav-link"
-            >
-              About Us
-            </a>
-            <Link
-              to="/services"
-              className={`nav-link`}
-            >
-              Our Services
-            </Link>
-            <a
-              href="/#products"
-              onClick={(e) => handleNavClick(e, '/#products')}
-              className="nav-link"
-            >
-              Our Products
-            </a>
+            {NAV_ITEMS.map((item) => (
+              item.path.startsWith('/#') ? (
+                <a
+                  key={item.label}
+                  href={item.path}
+                  onClick={(e) => handleNavClick(e, item.path)}
+                  className="nav-link"
+                >
+                  {item.label}
+                </a>
+              ) : (
+                <Link key={item.label} to={item.path} className="nav-link">
+                  {item.label}
+                </Link>
+              )
+            ))}
           </nav>
 
           <div className="navbar-action">
-            <a
+            <CTAButton
               href="/#contact"
               onClick={(e) => handleNavClick(e, '/#contact')}
               className="enquire-now-btn"
             >
-              Enquire Now &gt;
-            </a>
+              Enquire Now <ChevronRight size={20} />
+            </CTAButton>
           </div>
 
           <button
@@ -90,42 +67,35 @@ export default function Navbar() {
 
       {mobileMenuOpen && (
         <div className="mobile-drawer">
-          <Link
-            to="/"
-            onClick={() => setMobileMenuOpen(false)}
-            className="nav-link"
-          >
-            Home
-          </Link>
-          <a
-            href="/#about"
-            onClick={(e) => handleNavClick(e, '/#about')}
-            className="nav-link"
-          >
-            About Us
-          </a>
-          <Link
-            to="/services"
-            onClick={() => setMobileMenuOpen(false)}
-            className="nav-link"
-          >
-            Our Services
-          </Link>
-          <a
-            href="/#products"
-            onClick={(e) => handleNavClick(e, '/#products')}
-            className="nav-link"
-          >
-            Our Products
-          </a>
-          <a
+          {NAV_ITEMS.map((item) => (
+            item.path.startsWith('/#') ? (
+              <a
+                key={item.label}
+                href={item.path}
+                onClick={(e) => handleNavClick(e, item.path)}
+                className="nav-link"
+              >
+                {item.label}
+              </a>
+            ) : (
+              <Link
+                key={item.label}
+                to={item.path}
+                onClick={() => setMobileMenuOpen(false)}
+                className="nav-link"
+              >
+                {item.label}
+              </Link>
+            )
+          ))}
+          <CTAButton
             href="/#contact"
             onClick={(e) => handleNavClick(e, '/#contact')}
             className="enquire-now-btn"
             style={{ textAlign: 'center', marginTop: '8px' }}
           >
-            Enquire Now &gt;
-          </a>
+            Enquire Now  <ChevronRight size={20} />
+          </CTAButton>
         </div>
       )}
     </header>

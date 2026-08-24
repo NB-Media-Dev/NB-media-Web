@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import logo from "../assets/web_size_2.png";
+import BrandLogo from "./common/BrandLogo";
+import { COMPANY_INFO } from "../data/companyData";
 
 export default function SplashScreen() {
   const [progress, setProgress] = useState(0);
@@ -82,15 +83,12 @@ export default function SplashScreen() {
       >
         {/* Brand Logo with Glow */}
         <motion.div
-          layoutId="navbar-logo-shared"
           initial={{ scale: 0.85, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
           style={{ display: "flex", alignItems: "center", justifyContent: "center" }}
         >
-          <img
-            src={logo}
-            alt="NB Media Tech"
+          <BrandLogo
             style={{
               height: "85px",
               maxHeight: "110px",
@@ -118,7 +116,7 @@ export default function SplashScreen() {
             whiteSpace: "nowrap",
           }}
         >
-          Imagine Bigger. Build Smarter. Grow Faster
+          {COMPANY_INFO.tagline}
         </motion.p>
 
         {/* Progress Bar Container */}

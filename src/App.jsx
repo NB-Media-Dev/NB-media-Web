@@ -11,7 +11,6 @@ import ContactPage from './pages/ContactPage';
 import './App.css';
 
 export default function App() {
-  const [searchQuery, setSearchQuery] = useState('');
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -44,12 +43,12 @@ export default function App() {
                   <Route
                     path="/"
                     element={
-                      <HomePage searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+                      <HomePage />
                     }
                   />
                   <Route
                     path="/services"
-                    element={<ServicesPage searchQuery={searchQuery} />}
+                    element={<ServicesPage />}
                   />
                   <Route
                     path="/contact"

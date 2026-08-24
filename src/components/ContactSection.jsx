@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
 import sunsetBg from '../assets/1b19403bab4a63c4a66d546899489ea83c44c42e.jpg';
+import SectionHeader from './common/SectionHeader';
+import CTAButton from './common/CTAButton';
+import { SERVICES_DATA } from '../data/servicesData';
+import { REFERRAL_OPTIONS } from '../data/companyData';
 import '../App.css';
 
 export default function ContactSection() {
@@ -55,9 +59,12 @@ export default function ContactSection() {
           className="contact-banner-bg"
         />
         <div className="contact-banner-content">
-          <h2 className="contact-main-title">
-            CONTACT <span className="highlight-orange">US</span>
-          </h2>
+          <SectionHeader
+            title="CONTACT"
+            highlightedText="US"
+            highlightClass="highlight-orange"
+            className="contact-main-title"
+          />
           <p className="contact-banner-desc">
             Have a question or need a digital solution? Get in touch with our team to discuss your requirements and explore the right solution for your business.
           </p>
@@ -65,17 +72,16 @@ export default function ContactSection() {
       </div>
 
       <div className="max-container contact-form-wrapper">
-        
-          <div className="contact-left-info">
-            <h4 className="contact-get-touch">Get in Touch</h4>
-            <h3 className="contact-amazing-title">
-              Let’s build something amazing together
-            </h3>
-            <p className="contact-left-desc">
-              Tell us about your project and we'll get back to you within one business day with a clear plan and estimate.
-            </p>
-          </div>
-<div className="contact-gold-border-card">
+        <div className="contact-left-info">
+          <h4 className="contact-get-touch">Get in Touch</h4>
+          <h3 className="contact-amazing-title">
+            Let’s build something amazing together
+          </h3>
+          <p className="contact-left-desc">
+            Tell us about your project and we'll get back to you within one business day with a clear plan and estimate.
+          </p>
+        </div>
+        <div className="contact-gold-border-card">
           <div className="contact-right-form">
             {submitted ? (
               <div
@@ -100,13 +106,13 @@ export default function ContactSection() {
                 <p style={{ fontSize: '14px', color: '#d1d5db' }}>
                   We typically respond within 24 hours.
                 </p>
-                <button
+                <CTAButton
                   onClick={() => setSubmitted(false)}
                   className="enquire-now-btn"
                   style={{ marginTop: '16px', cursor: 'pointer' }}
                 >
                   Send Another Message
-                </button>
+                </CTAButton>
               </div>
             ) : (
               <form onSubmit={handleSubmit}>
@@ -156,10 +162,10 @@ export default function ContactSection() {
                   </div>
 
                   <div className="form-group">
-                    <label className="form-label">Buisness-Industry</label>
+                    <label className="form-label">Business Industry</label>
                     <input
                       type="text"
-                      placeholder="eg, Retail,Healthcare"
+                      placeholder="eg, Retail, Healthcare"
                       value={formData.industry}
                       onChange={(e) =>
                         setFormData({ ...formData, industry: e.target.value })
@@ -181,21 +187,11 @@ export default function ContactSection() {
                       className="form-input-control"
                     >
                       <option value="">Select a service</option>
-                      <option value="Web Development">Web Development</option>
-                      <option value="Mobile App Development">
-                        Mobile App Development
-                      </option>
-                      <option value="UI/UX Design">UI/UX Design</option>
-                      <option value="Cloud Solutions">Cloud Solutions</option>
-                      <option value="Digital Marketing">
-                        Digital Marketing
-                      </option>
-                      <option value="E-Commerce Solutions">
-                        E-Commerce Solutions
-                      </option>
-                      <option value="Cyber Security">Cyber Security</option>
-                      <option value="AI Automation">AI Automation</option>
-                      <option value="IT Consulting">IT Consulting</option>
+                      {SERVICES_DATA.map((svc) => (
+                        <option key={svc.id} value={svc.title}>
+                          {svc.title}
+                        </option>
+                      ))}
                     </select>
                   </div>
 
@@ -211,16 +207,17 @@ export default function ContactSection() {
                       className="form-input-control"
                     >
                       <option value="">Select an option</option>
-                      <option value="Google">Google</option>
-                      <option value="Social Media">Social Media</option>
-                      <option value="Referral">Referral</option>
-                      <option value="Other">Other</option>
+                      {REFERRAL_OPTIONS.map((opt) => (
+                        <option key={opt} value={opt}>
+                          {opt}
+                        </option>
+                      ))}
                     </select>
                   </div>
                 </div>
 
                 <div className="form-group" style={{ marginBottom: '16px' }}>
-                  <label className="form-label">Buisness Goals</label>
+                  <label className="form-label">Business Goals</label>
                   <textarea
                     rows={4}
                     required
@@ -235,9 +232,9 @@ export default function ContactSection() {
                 </div>
 
                 <div style={{ textAlign: 'center' }}>
-                  <button type="submit" className="share-req-btn">
+                  <CTAButton type="submit" className="share-req-btn">
                     Share Your Requirements
-                  </button>
+                  </CTAButton>
 
                   <p className="respond-time-text">
                     We Typically Respond within 24 hours
