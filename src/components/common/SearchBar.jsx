@@ -1,9 +1,6 @@
 import React from 'react';
 import { Search } from 'lucide-react';
 
-/**
- * Reusable Search Bar component with input and click icon handler.
- */
 export default function SearchBar({
   value = '',
   onChange,

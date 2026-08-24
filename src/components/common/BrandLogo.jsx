@@ -3,9 +3,6 @@ import { motion } from 'framer-motion';
 import logoImg from '../../assets/web_size_2.png';
 import { COMPANY_INFO } from '../../data/companyData';
 
-/**
- * Reusable Brand Logo component with Framer Motion shared layout transition.
- */
 export default function BrandLogo({
   className = 'navbar-logo-img',
   layoutId = 'navbar-logo-shared',

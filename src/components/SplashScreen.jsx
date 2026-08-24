@@ -40,7 +40,6 @@ export default function SplashScreen() {
         padding: "1rem",
       }}
     >
-      {/* Golden Glowing Ambient Backdrop Blob */}
       <motion.div
         animate={{
           scale: [1, 1.2, 1],
@@ -65,7 +64,6 @@ export default function SplashScreen() {
         }}
       />
 
-      {/* Main Content Box */}
       <motion.div
         initial={{ scale: 0.85, opacity: 0, y: 15 }}
         animate={{ scale: 1, opacity: 1, y: 0 }}
@@ -81,7 +79,6 @@ export default function SplashScreen() {
           textAlign: "center",
         }}
       >
-        {/* Brand Logo with Glow */}
         <motion.div
           initial={{ scale: 0.85, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
@@ -99,7 +96,6 @@ export default function SplashScreen() {
           />
         </motion.div>
 
-        {/* Tagline */}
         <motion.p
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
@@ -119,7 +115,6 @@ export default function SplashScreen() {
           {COMPANY_INFO.tagline}
         </motion.p>
 
-        {/* Progress Bar Container */}
         <div
           style={{
             width: "220px",
@@ -133,7 +128,6 @@ export default function SplashScreen() {
             boxShadow: "0 0 10px rgba(245, 158, 11, 0.1)",
           }}
         >
-          {/* Animated Progress Fill */}
           <motion.div
             style={{
               position: "absolute",
@@ -147,7 +141,6 @@ export default function SplashScreen() {
               transition: "width 0.03s linear",
             }}
           />
-          {/* Shimmer Light Bar */}
           <motion.div
             initial={{ left: "-100%" }}
             animate={{ left: "100%" }}
@@ -167,7 +160,6 @@ export default function SplashScreen() {
           />
         </div>
 
-        {/* Percentage Counter */}
         <motion.span
           initial={{ opacity: 0 }}
           animate={{ opacity: 0.8 }}

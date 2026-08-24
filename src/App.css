@@ -91,7 +91,6 @@ button, input, select, textarea {
   color: var(--color-gold) !important;
 }
 
-/* Desktop content scales with the viewport instead of becoming too small on large displays. */
 .max-container {
   width: min(94vw, 1600px);
   max-width: 1600px;
@@ -2563,7 +2562,6 @@ select.form-input-control option {
   .section-headline, .section-headline1 { font-size: 42px; }
 }
 
-/* --- 2. Medium Laptops & Tablets (1025px to 1200px) --- */
 @media (max-width: 1200px) {
   .hero-main-title { font-size: 48px; }
   .hero-tagline { font-size: 32px; }
@@ -2572,7 +2570,6 @@ select.form-input-control option {
   .about-gold-card { padding: 32px; }
 }
 
-/* --- 3. Small Laptops & Landscape Tablets (769px to 1024px) --- */
 @media (max-width: 1024px) {
   .navbar-container { padding: 16px 24px; }
   .navbar-right { gap: 20px; }
@@ -2604,7 +2601,6 @@ select.form-input-control option {
   .solutions-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
-/* --- 4. Portrait Tablets & Large Phones (481px to 768px) --- */
 @media (max-width: 768px) {
   .navbar-links, .navbar-action { display: none; }
   .mobile-toggle-btn { display: block; }
@@ -2642,7 +2638,6 @@ select.form-input-control option {
   .solutions-header-badge h2 { font-size: 24px; }
 }
 
-/* --- 5. Small Mobile Frameworks (Up to 480px) --- */
 @media (max-width: 480px) {
   .brand-title { font-size: 20px; }
   .brand-subtitle { font-size: 15px; }
@@ -2666,7 +2661,6 @@ select.form-input-control option {
   .contact-amazing-title { font-size: 26px; }
 }
 
-/* --- 6. Ultrawide Monitors Optimization (4K, Ultra Large screens 1920px+) --- */
 @media (min-width: 1920px) {
   .max-container, .navbar-container, .hero-content, .hero-stats-wrapper, .products-cards-grid, .footer-white-card {
     max-width: 1660px; 

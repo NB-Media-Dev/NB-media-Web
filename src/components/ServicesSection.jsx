@@ -23,7 +23,6 @@ export default function ServicesSection() {
     }
   }, [searchParams]);
 
-  // Automatically rotate featured service every 4 seconds
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveServiceIndex((prevIndex) => (prevIndex + 1) % SERVICES_DATA.length);

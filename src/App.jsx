@@ -14,7 +14,6 @@ export default function App() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Show splash screen for ~2.6s to allow full progress animation
     const timer = setTimeout(() => {
       setLoading(false);
     }, 2600);
