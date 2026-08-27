@@ -25,9 +25,9 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="contact-section">
-      <div className="contact-banner-wrapper">
-        <div className="contact-banner-arches">
+    <section id="contact" className="contact-section pt-6 pb-5">
+      <div className="contact-banner-wrapper position-relative d-flex align-items-center justify-content-center my-4 my-lg-5">
+        <div className="contact-banner-arches position-absolute top-50 start-50 translate-middle w-100 h-100 d-flex align-items-center justify-content-center">
           <svg
             className="contact-arch-svg outer-arch"
             viewBox="0 0 1166 504"
@@ -56,195 +56,186 @@ export default function ContactSection() {
         <img
           src={sunsetBg}
           alt="Contact Network Background"
-          className="contact-banner-bg"
+          className="contact-banner-bg position-absolute top-0 start-0 w-100 h-100 object-fit-cover"
         />
-        <div className="contact-banner-content">
+        <div className="contact-banner-content position-relative z-3 text-center px-3 py-4 py-lg-5">
           <SectionHeader
             title="CONTACT"
             highlightedText="US"
             highlightClass="highlight-orange"
-            className="contact-main-title"
+            className="contact-main-title mb-3"
           />
-          <p className="contact-banner-desc">
+          <p className="contact-banner-desc mx-auto">
             Have a question or need a digital solution? Get in touch with our team to discuss your requirements and explore the right solution for your business.
           </p>
         </div>
       </div>
 
-      <div className="max-container contact-form-wrapper">
-        <div className="contact-left-info">
-          <h4 className="contact-get-touch">Get in Touch</h4>
-          <h3 className="contact-amazing-title">
-            Let’s build something amazing together
-          </h3>
-          <p className="contact-left-desc">
-            Tell us about your project and we'll get back to you within one business day with a clear plan and estimate.
-          </p>
-        </div>
-        <div className="contact-gold-border-card">
-          <div className="contact-right-form">
-            {submitted ? (
-              <div
-                style={{
-                  textAlign: 'center',
-                  padding: '48px 20px',
-                  backgroundColor: 'rgba(0,0,0,0.5)',
-                  borderRadius: '16px',
-                  border: '1px solid #374151',
-                }}
-              >
-                <h3
-                  className="highlight-orange"
-                  style={{
-                    fontSize: '24px',
-                    fontWeight: '800',
-                    marginBottom: '8px',
-                  }}
-                >
-                  Enquiry Submitted Successfully!
-                </h3>
-                <p style={{ fontSize: '14px', color: '#d1d5db' }}>
-                  We typically respond within 24 hours.
-                </p>
-                <CTAButton
-                  onClick={() => setSubmitted(false)}
-                  className="enquire-now-btn"
-                  style={{ marginTop: '16px', cursor: 'pointer' }}
-                >
-                  Send Another Message
-                </CTAButton>
+      <div className="container-fluid px-3 px-md-4 px-lg-5 contact-form-wrapper mt-4 mt-lg-5 pt-3">
+        <div className="row g-4 g-lg-5 align-items-center">
+          <div className="col-12 col-lg-5 text-center text-lg-start contact-left-info">
+            <h4 className="contact-get-touch mb-2">Get in Touch</h4>
+            <h3 className="contact-amazing-title mb-3">
+              Let’s build something amazing together
+            </h3>
+            <p className="contact-left-desc mb-0">
+              Tell us about your project and we'll get back to you within one business day with a clear plan and estimate.
+            </p>
+          </div>
+
+          <div className="col-12 col-lg-7 mt-5">
+            <div className="contact-gold-border-card p-3 p-sm-4 p-md-5 rounded-4 mt-5">
+              <div className="contact-right-form">
+                {submitted ? (
+                  <div className="text-center p-4 p-md-5 bg-dark bg-opacity-50 rounded-4 border border-secondary">
+                    <h3 className="highlight-orange fw-bold fs-4 mb-2">
+                      Enquiry Submitted Successfully!
+                    </h3>
+                    <p className="text-light small mb-3">
+                      We typically respond within 24 hours.
+                    </p>
+                    <CTAButton
+                      onClick={() => setSubmitted(false)}
+                      className="enquire-now-btn mt-2"
+                      style={{ cursor: 'pointer' }}
+                    >
+                      Send Another Message
+                    </CTAButton>
+                  </div>
+                ) : (
+                  <form onSubmit={handleSubmit}>
+                    <div className="row g-3 mb-3">
+                      <div className="col-12 col-md-6 form-group">
+                        <label className="form-label">Full Name</label>
+                        <input
+                          type="text"
+                          required
+                          placeholder="Your Name"
+                          value={formData.fullName}
+                          onChange={(e) =>
+                            setFormData({ ...formData, fullName: e.target.value })
+                          }
+                          className="form-input-control"
+                        />
+                      </div>
+
+                      <div className="col-12 col-md-6 form-group">
+                        <label className="form-label">Email-Address</label>
+                        <input
+                          type="email"
+                          required
+                          placeholder="Your@company.com"
+                          value={formData.email}
+                          onChange={(e) =>
+                            setFormData({ ...formData, email: e.target.value })
+                          }
+                          className="form-input-control"
+                        />
+                      </div>
+                    </div>
+
+                    <div className="row g-3 mb-3">
+                      <div className="col-12 col-md-6 form-group">
+                        <label className="form-label">Mobile Number</label>
+                        <input
+                          type="tel"
+                          required
+                          placeholder="-91 0000000000"
+                          value={formData.mobile}
+                          onChange={(e) =>
+                            setFormData({ ...formData, mobile: e.target.value })
+                          }
+                          className="form-input-control"
+                        />
+                      </div>
+
+                      <div className="col-12 col-md-6 form-group">
+                        <label className="form-label">Business Industry</label>
+                        <input
+                          type="text"
+                          placeholder="eg, Retail, Healthcare"
+                          value={formData.industry}
+                          onChange={(e) =>
+                            setFormData({ ...formData, industry: e.target.value })
+                          }
+                          className="form-input-control"
+                        />
+                      </div>
+                    </div>
+
+                    <div className="row g-3 mb-3">
+                      <div className="col-12 col-md-6 form-group">
+                        <label className="form-label">Service Required</label>
+                        <select
+                          required
+                          value={formData.service}
+                          onChange={(e) =>
+                            setFormData({ ...formData, service: e.target.value })
+                          }
+                          className="form-input-control"
+                        >
+                          <option value="">Select a service</option>
+                          {SERVICES_DATA.map((svc) => (
+                            <option key={svc.id} value={svc.title}>
+                              {svc.title}
+                            </option>
+                          ))}
+                        </select>
+                      </div>
+
+                      <div className="col-12 col-md-6 form-group">
+                        <label className="form-label">
+                          How did you know about us?
+                        </label>
+                        <select
+                          value={formData.referral}
+                          onChange={(e) =>
+                            setFormData({ ...formData, referral: e.target.value })
+                          }
+                          className="form-input-control"
+                        >
+                          <option value="">Select an option</option>
+                          {REFERRAL_OPTIONS.map((opt) => (
+                            <option key={opt} value={opt}>
+                              {opt}
+                            </option>
+                          ))}
+                        </select>
+                      </div>
+                    </div>
+
+                    <div className="form-group mb-4">
+                      <label className="form-label">Business Goals</label>
+                      <textarea
+                        rows={4}
+                        required
+                        placeholder="Tell us what you're looking to build, improve, or grow..."
+                        value={formData.requirements}
+                        onChange={(e) =>
+                          setFormData({ ...formData, requirements: e.target.value })
+                        }
+                        className="form-input-control"
+                        style={{ resize: 'none' }}
+                      />
+                    </div>
+
+                    <div className="text-center">
+                      <CTAButton type="submit" className="share-req-btn">
+                        Share Your Requirements
+                      </CTAButton>
+
+                      <p className="respond-time-text mt-2 mb-0">
+                        We Typically Respond within 24 hours
+                      </p>
+                    </div>
+                  </form>
+                )}
               </div>
-            ) : (
-              <form onSubmit={handleSubmit}>
-                <div className="form-grid-2">
-                  <div className="form-group">
-                    <label className="form-label">Full Name</label>
-                    <input
-                      type="text"
-                      required
-                      placeholder="Your Name"
-                      value={formData.fullName}
-                      onChange={(e) =>
-                        setFormData({ ...formData, fullName: e.target.value })
-                      }
-                      className="form-input-control"
-                    />
-                  </div>
-
-                  <div className="form-group">
-                    <label className="form-label">Email-Address</label>
-                    <input
-                      type="email"
-                      required
-                      placeholder="Your@company.com"
-                      value={formData.email}
-                      onChange={(e) =>
-                        setFormData({ ...formData, email: e.target.value })
-                      }
-                      className="form-input-control"
-                    />
-                  </div>
-                </div>
-
-                <div className="form-grid-2">
-                  <div className="form-group">
-                    <label className="form-label">Mobile Number</label>
-                    <input
-                      type="tel"
-                      required
-                      placeholder="-91 0000000000"
-                      value={formData.mobile}
-                      onChange={(e) =>
-                        setFormData({ ...formData, mobile: e.target.value })
-                      }
-                      className="form-input-control"
-                    />
-                  </div>
-
-                  <div className="form-group">
-                    <label className="form-label">Business Industry</label>
-                    <input
-                      type="text"
-                      placeholder="eg, Retail, Healthcare"
-                      value={formData.industry}
-                      onChange={(e) =>
-                        setFormData({ ...formData, industry: e.target.value })
-                      }
-                      className="form-input-control"
-                    />
-                  </div>
-                </div>
-
-                <div className="form-grid-2">
-                  <div className="form-group">
-                    <label className="form-label">Service Required</label>
-                    <select
-                      required
-                      value={formData.service}
-                      onChange={(e) =>
-                        setFormData({ ...formData, service: e.target.value })
-                      }
-                      className="form-input-control"
-                    >
-                      <option value="">Select a service</option>
-                      {SERVICES_DATA.map((svc) => (
-                        <option key={svc.id} value={svc.title}>
-                          {svc.title}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-
-                  <div className="form-group">
-                    <label className="form-label">
-                      How did you know about us?
-                    </label>
-                    <select
-                      value={formData.referral}
-                      onChange={(e) =>
-                        setFormData({ ...formData, referral: e.target.value })
-                      }
-                      className="form-input-control"
-                    >
-                      <option value="">Select an option</option>
-                      {REFERRAL_OPTIONS.map((opt) => (
-                        <option key={opt} value={opt}>
-                          {opt}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-                </div>
-
-                <div className="form-group" style={{ marginBottom: '16px' }}>
-                  <label className="form-label">Business Goals</label>
-                  <textarea
-                    rows={4}
-                    required
-                    placeholder="Tell us what you're looking to build, improve, or grow..."
-                    value={formData.requirements}
-                    onChange={(e) =>
-                      setFormData({ ...formData, requirements: e.target.value })
-                    }
-                    className="form-input-control"
-                    style={{ resize: 'none' }}
-                  />
-                </div>
-
-                <div style={{ textAlign: 'center' }}>
-                  <CTAButton type="submit" className="share-req-btn">
-                    Share Your Requirements
-                  </CTAButton>
-
-                  <p className="respond-time-text">
-                    We Typically Respond within 24 hours
-                  </p>
-                </div>
-              </form>
-            )}
+            </div>
           </div>
         </div>
       </div>
     </section>
   );
 }
+

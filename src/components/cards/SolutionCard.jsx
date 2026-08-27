@@ -4,7 +4,7 @@ export default function SolutionCard({ item, onClick }) {
   return (
     <div
       onClick={() => onClick(item.id)}
-      className={`solution-card ${
+      className={`solution-card w-100 ${
         item.variant === 'orange' ? 'solution-card-orange' : 'solution-card-dark'
       } ${item.cardClass || ''}`}
       style={{ cursor: 'pointer' }}

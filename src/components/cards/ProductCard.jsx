@@ -5,8 +5,8 @@ export default function ProductCard({ product }) {
       href={product.url}
       target="_blank"
       rel="noopener noreferrer"
-      className="product-card-container"
-      style={{ textDecoration: 'none', cursor: 'pointer' }}
+      className="product-card-container w-100 d-flex flex-column text-decoration-none"
+      style={{ cursor: 'pointer' }}
       title={`Visit ${product.line1} ${product.line2}`}
     >
       <div className="product-arch-header">
@@ -16,10 +16,11 @@ export default function ProductCard({ product }) {
           className="product-asset-img"
         />
       </div>
-      <div className="product-title-card">
+      <div className="product-title-card flex-grow-1">
         <div>{product.line1}</div>
         <div>{product.line2}</div>
       </div>
     </a>
   );
 }
+

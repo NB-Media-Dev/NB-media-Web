@@ -6,27 +6,28 @@ import '../App.css';
 
 export default function MissionVision() {
   return (
-    <section className="mission-vision-section">
-      <div className="max-container">
+    <section className="mission-vision-section py-4 py-lg-5">
+      <div className="container-fluid px-3 px-md-4 px-lg-5">
 
-        <div className="mission-row">
-          <div className="mission-image-col">
-            <div className="vertical-image-card">
+        {/* Mission Row */}
+        <div className="row align-items-center g-4 g-lg-5 mb-5 pb-3">
+          <div className="col-12 col-lg-5 d-flex justify-content-center ">
+            <div className="vertical-image-card1">
               <img
                 src={missionImg}
                 alt="OUR MISSION"
               />
             </div>
           </div>
-          <div className="mission-text-col">
+          <div className="col-12 col-lg-7 text-center text-lg-start">
             <SectionHeader
               title="OUR"
               highlightedText="MISSION"
               highlightClass="gold-text"
-              className="section-headline"
+              className="section-headline1 mb-3 mb-lg-4 "
             />
 
-            <p className="section-paragraph">
+            <p className="section-paragraph mx-auto mx-lg-10 fs-4">
               To deliver innovative, scalable, and technology-driven solutions that address complex 
               business challenges, optimize performance, strengthen operational capabilities, and empower 
               organizations to achieve sustainable growth and long-term competitive advantage.
@@ -34,22 +35,23 @@ export default function MissionVision() {
           </div>
         </div>
 
-        <div className="vision-row">
-          <div className="vision-text-col">
+        {/* Vision Row */}
+        <div className="row align-items-center g-4 g-lg-5">
+          <div className="col-12 col-lg-7 text-center text-lg-start order-2 order-lg-1">
             <SectionHeader
               title="OUR"
               highlightedText="VISION"
               highlightClass="gold-text"
-              className="section-headline1"
+              className="section-headline mb-3 mb-lg-4  "
             />
 
-            <p className="section-paragraph1">
+            <p className="section-paragraph1  fs-4">
               To become a trusted global technology partner, transforming ideas into innovative solutions 
               that shape the future, create lasting value, enhance business performance, drive sustainable 
               growth, and create new opportunities through technology and innovation.
             </p>
           </div>
-          <div className="vision-image-col">
+          <div className="col-12 col-lg-5 d-flex justify-content-center order-1 order-lg-2">
             <div className="vertical-image-card">
               <img
                 src={visionImg}
@@ -63,3 +65,4 @@ export default function MissionVision() {
     </section>
   );
 }
+

@@ -15,8 +15,8 @@ export default function EndToEndSolutions() {
 
   return (
     <section id="solutions" className="solutions-section">
-      <div className="max-container">
-        <div className="solutions-grey-wrapper1">
+      <div className="container-fluid px-3 px-md-4 px-lg-5">
+        <div className="solutions-grey-wrapper position-relative">
           <div className="solutions-header-badge">
             <h2>End-to-End Solutions</h2>
           </div>
@@ -26,13 +26,14 @@ export default function EndToEndSolutions() {
             efficiency, elevate customer experiences, and achieve lasting growth.
           </p>
 
-          <div className="solutions-grid">
+          <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3 g-md-4">
             {SERVICES_DATA.map((item) => (
-              <SolutionCard
-                key={item.id}
-                item={item}
-                onClick={handleCardClick}
-              />
+              <div key={item.id} className="col d-flex">
+                <SolutionCard
+                  item={item}
+                  onClick={handleCardClick}
+                />
+              </div>
             ))}
           </div>
         </div>
@@ -40,3 +41,4 @@ export default function EndToEndSolutions() {
     </section>
   );
 }
+
