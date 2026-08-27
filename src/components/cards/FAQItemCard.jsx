@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { IoIosArrowDown } from 'react-icons/io';
 
-export default function FAQItemCard({ faq, isOpen, onToggle }) {
+const FAQItemCard = memo(function FAQItemCard({ faq, isOpen, onToggle }) {
   return (
     <div className={`faq-item-card ${isOpen ? 'active' : ''}`}>
       <button onClick={onToggle} className="faq-question-btn">
@@ -16,4 +16,7 @@ export default function FAQItemCard({ faq, isOpen, onToggle }) {
       </div>
     </div>
   );
-}
+});
+
+export default FAQItemCard;
+

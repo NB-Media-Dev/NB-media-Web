@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { memo } from 'react';
 
-export default function WhyChooseCard({ item }) {
+const WhyChooseCard = memo(function WhyChooseCard({ item }) {
   return (
     <div className="why-choose-card">
       <div className="why-choose-card-img-box">
@@ -10,4 +10,7 @@ export default function WhyChooseCard({ item }) {
       <p className="why-choose-card-desc">{item.description}</p>
     </div>
   );
-}
+});
+
+export default WhyChooseCard;
+

@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, ChevronRight } from 'lucide-react';
 import BrandLogo from './common/BrandLogo';
 import CTAButton from './common/CTAButton';
 import { NAV_ITEMS } from '../data/companyData';
 import { handleHashNavigation } from '../utils/navigation';
 import '../App.css';
-import { Check, ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react';
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);

@@ -1,5 +1,6 @@
-import React from 'react';
-export default function ProductCard({ product }) {
+import React, { memo } from 'react';
+
+const ProductCard = memo(function ProductCard({ product }) {
   return (
     <a
       href={product.url}
@@ -22,5 +23,8 @@ export default function ProductCard({ product }) {
       </div>
     </a>
   );
-}
+});
+
+export default ProductCard;
+
 

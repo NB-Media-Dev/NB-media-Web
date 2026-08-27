@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { memo } from 'react';
 
-export default function SolutionCard({ item, onClick }) {
+const SolutionCard = memo(function SolutionCard({ item, onClick }) {
   return (
     <div
       onClick={() => onClick(item.id)}
@@ -14,4 +14,7 @@ export default function SolutionCard({ item, onClick }) {
       <p className="solution-card-desc">{item.description}</p>
     </div>
   );
-}
+});
+
+export default SolutionCard;
+
